@@ -3,10 +3,10 @@ USE employee_tracker;
 INSERT INTO department
     (name)
 VALUES
-     ("Financing");
-     ("Aministration");
-     ("Management");
-     ("Humain Resource");
+    ("Financing");
+    ("Aministration");
+    ("Management");
+    ("Humain Resource");
 
 INSERT INTO role
     (title, salary, department_id)
