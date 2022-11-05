@@ -59,3 +59,24 @@ function start() {
       }
     });
 }
+//To view all departements
+const viewAllDepartement = () => {
+  db.query("SELECT * FROM department", function (err, answers) {
+    if (err) {
+      console.log(err);
+    }
+    console.table(answers);
+    choice();
+  });
+};
+
+//To view all roles
+const viewAllRolest = () => {
+  db.query("SELECT * FROM role", function (err, answers) {
+    if (err) {
+      console.log(err);
+    }
+    console.table(answers);
+    choice();
+  });
+};
