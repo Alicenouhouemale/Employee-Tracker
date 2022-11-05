@@ -22,5 +22,5 @@ VALUES
     ("Michael", "Johnson", 1);
     ("Sally", "Mae", 2);
     ("Andrea", "Ivy", 3);
-    ("Justin", "Kimberlin", );
+    ("Justin", "Kimberlin", 4);
     ("Luca", "Brown", 5);
