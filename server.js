@@ -79,7 +79,7 @@ const viewAllRolest = () => {
         console.log(err);
       }
       console.table(answers);
-      menu();
+      choice();
     }
   );
 };
@@ -105,7 +105,32 @@ FROM
         console.log(err);
       }
       console.table(answers);
-      menu();
+      choice();
     }
   );
+};
+
+//To add departement
+const addDepartement = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "add the new department name: ",
+        name: "department_name",
+      },
+    ])
+    .then((answers) => {
+      db.query(
+        `INSERT INTO department (department_name) VALUES (?)`,
+        [answers.department_name],
+        function (err, data) {
+          console.log("Added departmnet");
+          if (err) {
+            console.log(err);
+          }
+          menu();
+        }
+      );
+    });
 };
