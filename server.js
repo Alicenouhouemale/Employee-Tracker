@@ -129,6 +129,39 @@ const addDepartement = () => {
           if (err) {
             console.log(err);
           }
+          choice();
+        }
+      );
+    });
+};
+
+//To add role
+const addRoles = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: " add the jobs_title: ",
+        name: "jobs_title",
+      },
+      {
+        type: "input",
+        message: "add salary",
+        name: "salary",
+      },
+      {
+        type: "input",
+        message: "add departments_id",
+        name: "department_id",
+      },
+    ])
+    .then((answers) => {
+      db.query(
+        `INSERT INTO role (jobs_title, salary, department_id) VALUES (?,?,?)`,
+        [answers.jobs_title, answers.salary, answers.department_id],
+        (err, data) => {
+          console.log(err);
+          console.log("role");
           menu();
         }
       );
