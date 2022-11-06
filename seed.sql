@@ -1,12 +1,12 @@
-USE employee_tracker;
+USE employee_trackerDB;
 
 INSERT INTO department
     (name)
 VALUES
-    ("Financing");
+    ("Accounting");
     ("Aministration");
     ("Management");
-    ("Humain Resource");
+    ("Humain Resources");
 
 INSERT INTO role
     (title, salary, department_id)
