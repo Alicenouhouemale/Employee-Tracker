@@ -1,21 +1,23 @@
 // Import and require mysql
-const mysql = require("mysql");
 const inquirer = require("inquirer");
+// const db = require("./db");
 
-const PORT = process.env.PORT || 3001;
-const app = express();
+const mysql = require("mysql2");
 
 // Connect to database
-const db = mysql.createConnection(
-  {
-    host: "localhost",
-    user: "root",
-    password: "Nalice95$",
-    database: "employee_trackerDB",
-  },
-  console.log(`Connected to the employee_trackerDB database.`)
-);
+// create the connection to database
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Nalice95$"
+  database: "test",
+});
 
+// connect.connect((err) => {
+//   if (err) throw err;
+// });
+
+console.log("connected");
 function start() {
   inquirer
     .prompt({
