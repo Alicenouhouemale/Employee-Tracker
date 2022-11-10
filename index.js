@@ -69,7 +69,7 @@ const viewDepartements = () => {
 // Function to view roles
 const viewRoles = () => {
   db.query(
-    "SELECT role.id AS id, role.jobs_title AS jobs_title, department.department_name AS department_name, role.salary AS salary FROM role LEFT JOIN department ON role.department_id = department.id;",
+    "SELECT role.title AS title, role.salary AS salary, department_id AS department_id FROM role LEFT JOIN department ON role.department_id = department.id;",
     function (err, answers) {
       if (err) {
         console.log(err);
@@ -84,16 +84,16 @@ const viewRoles = () => {
 const viewEmployees = () => {
   db.query(
     `SELECT
-  employee.id,
   employee.first_name,
   employee.last_name,
-  department.department_name AS department_name,
+  employee.id,
+  department.name AS department.name,
   role.salary AS salary,
-  role.jobs_title AS jobs_title,
+  role.title AS title,
   CONCAT(manager.first_name, " ", manager.last_name) AS manager
 FROM
   employee
-  LEFT JOIN role ON employee.role_id = role.id
+  LEFT JOIN role ON employee.id = role.id
   LEFT JOIN department ON role.department_id = department.id
   LEFT JOIN employee manager ON manager.id = employee.manager_id`,
     function (err, answers) {
