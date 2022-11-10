@@ -4,17 +4,18 @@ const inquirer = require("inquirer");
 
 const mysql = require("mysql2");
 
-// create the connection to database
-const connection = mysql.createConnection({
-  host: 3306,
-  user: "root",
-  password: "Nalice95$",
-  database: "test",
-});
+console.log("connection");
 
-connection.connect((err) => {
-  if (err) throw err;
-});
+// create the connection to database
+const db = mysql.createConnection(
+  {
+    host: "localhost",
+    user: "root",
+    password: "Nalice95$",
+    database: "employee_trackerDB",
+  },
+  console.log("connected successfuly")
+);
 
 console.log("connected");
 function start() {
@@ -56,6 +57,7 @@ function start() {
     });
 }
 // Function to view departments
+
 const viewDepartements = () => {
   db.query("SELECT * FROM department", function (err, answers) {
     if (err) {
@@ -224,3 +226,5 @@ const updateEmployeeRole = () => {
       );
     });
 };
+
+start();
