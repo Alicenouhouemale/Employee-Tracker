@@ -25,27 +25,27 @@ function start() {
       message:
         "Please choose the option which you would like to continue with:",
       choices: [
-        "view all departments",
-        "view all roles",
-        "view all employees",
+        "view departments",
+        "view roles",
+        "view employees",
         "add department",
-        "add roles",
+        "add role",
         "add employee",
         "update employee role",
       ],
     })
 
     .then(function (answer) {
-      if (answer.choiceType == "view all departments") {
-        viewAllDepartement();
-      } else if (answer.choiceType == "view all roles") {
-        viewAllRolest();
-      } else if (answer.choiceType == "view all employees") {
-        viewAllEmployee();
+      if (answer.choiceType == "view departments") {
+        viewDepartements();
+      } else if (answer.choiceType == "view roles") {
+        viewRoles();
+      } else if (answer.choiceType == "view employees") {
+        viewEmployees();
       } else if (answer.choiceType == "add department") {
         addDepartement();
-      } else if (answer.choiceType == "add roles") {
-        addRoles();
+      } else if (answer.choiceType == "add role") {
+        addRole();
       } else if (answer.choiceType == "add employee") {
         addEmployee();
       } else if (answer.choiceType == "update an employee role") {
@@ -55,8 +55,8 @@ function start() {
       }
     });
 }
-// Function to show all departments
-const showDepartment = () => {
+// Function to view departments
+const viewDepartements = () => {
   db.query("SELECT * FROM department", function (err, answers) {
     if (err) {
       console.log(err);
@@ -66,8 +66,8 @@ const showDepartment = () => {
   });
 };
 
-// Function to show all roles
-const showRole = () => {
+// Function to view roles
+const viewRoles = () => {
   db.query(
     "SELECT role.id AS id, role.jobs_title AS jobs_title, department.department_name AS department_name, role.salary AS salary FROM role LEFT JOIN department ON role.department_id = department.id;",
     function (err, answers) {
@@ -80,8 +80,8 @@ const showRole = () => {
   );
 };
 
-// Function to show all employee
-const showEmployee = () => {
+// Function to view employees
+const viewEmployees = () => {
   db.query(
     `SELECT
   employee.id,
@@ -121,7 +121,7 @@ const addDepartment = () => {
         `INSERT INTO department (department_name) VALUES (?)`,
         [answers.department_name],
         function (err, data) {
-          console.log("Added departmnet");
+          console.log("Added department");
           if (err) {
             console.log(err);
           }
@@ -132,7 +132,7 @@ const addDepartment = () => {
 };
 
 // Function to add role
-const addRoles = () => {
+const addRole = () => {
   inquirer
     .prompt([
       {
