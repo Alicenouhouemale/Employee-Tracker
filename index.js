@@ -7,15 +7,15 @@ const mysql = require("mysql2");
 // Connect to database
 // create the connection to database
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: 3306,
   user: "root",
-  password: "Nalice95$"
+  password: "Nalice95$",
   database: "test",
 });
 
-// connect.connect((err) => {
-//   if (err) throw err;
-// });
+connection.connect((err) => {
+  if (err) throw err;
+});
 
 console.log("connected");
 function start() {
