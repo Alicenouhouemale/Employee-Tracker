@@ -55,8 +55,8 @@ function start() {
       }
     });
 }
-// Function to view all departements
-const showDepartement = () => {
+// Function to show all departments
+const showDepartment = () => {
   db.query("SELECT * FROM department", function (err, answers) {
     if (err) {
       console.log(err);
@@ -66,7 +66,7 @@ const showDepartement = () => {
   });
 };
 
-// Function to view all roles
+// Function to show all roles
 const showRole = () => {
   db.query(
     "SELECT role.id AS id, role.jobs_title AS jobs_title, department.department_name AS department_name, role.salary AS salary FROM role LEFT JOIN department ON role.department_id = department.id;",
@@ -80,7 +80,7 @@ const showRole = () => {
   );
 };
 
-// Function to view all employee
+// Function to show all employee
 const showEmployee = () => {
   db.query(
     `SELECT
@@ -106,8 +106,8 @@ FROM
   );
 };
 
-// Function to add departement
-const addDepartement = () => {
+// Function to add department
+const addDepartment = () => {
   inquirer
     .prompt([
       {
