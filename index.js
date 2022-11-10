@@ -31,7 +31,7 @@ function start() {
         "add department",
         "add roles",
         "add employee",
-        "update an employee role",
+        "update employee role",
       ],
     })
 
