@@ -4,7 +4,6 @@ const inquirer = require("inquirer");
 
 const mysql = require("mysql2");
 
-// Connect to database
 // create the connection to database
 const connection = mysql.createConnection({
   host: 3306,
